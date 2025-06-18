@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Labyrinth of Self</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #002D62;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 320px;
+            width: 100%;
+            max-width: 500px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .text-glow {
+            text-shadow: 0 0 8px rgba(137, 223, 243, 0.7), 0 0 10px rgba(137, 223, 243, 0.5);
+        }
+        .card {
+            background-color: rgba(0, 74, 173, 0.4);
+            border: 1px solid rgba(0, 121, 194, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .flowchart-step {
+            border-left: 3px solid #009BDE;
+            position: relative;
+        }
+        .flowchart-step::before {
+            content: '●';
+            position: absolute;
+            left: -10px;
+            top: 1.25rem;
+            color: #89DFF3;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body class="text-gray-200">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12">
+            <h1 class="text-4xl md:text-6xl font-black text-white text-glow mb-4">The Labyrinth of Self</h1>
+            <p class="text-lg md:text-xl text-cyan-200 max-w-3xl mx-auto">A visual quest for profound transformation, guided by the principle: overcome or perish.</p>
+        </header>
+
+        <main>
+            <section id="the-call" class="my-16">
+                <h2 class="text-3xl font-bold text-center mb-2 text-white">I. The Call to the Inner Journey</h2>
+                <p class="text-center text-cyan-300 mb-12 max-w-2xl mx-auto">The adventure begins by defining its four core domains—the pillars of a transformed existence.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="card rounded-xl p-6 text-center shadow-lg hover:shadow-cyan-400/20 transition-shadow duration-300">
+                        <span class="text-5xl mb-4 block">🧠</span>
+                        <h3 class="text-xl font-bold text-white">Self-Development</h3>
+                        <p class="mt-2 text-sm text-gray-300">A lifelong strategy to cultivate potential, enhance life quality, and realize aspirations.</p>
+                    </div>
+                    <div class="card rounded-xl p-6 text-center shadow-lg hover:shadow-cyan-400/20 transition-shadow duration-300">
+                        <span class="text-5xl mb-4 block">❤️‍🩹</span>
+                        <h3 class="text-xl font-bold text-white">Healing</h3>
+                        <p class="mt-2 text-sm text-gray-300">A personal transcendence of suffering to restore inner harmony between mind, body, and spirit.</p>
+                    </div>
+                    <div class="card rounded-xl p-6 text-center shadow-lg hover:shadow-cyan-400/20 transition-shadow duration-300">
+                        <span class="text-5xl mb-4 block">🧘</span>
+                        <h3 class="text-xl font-bold text-white">Nirvana</h3>
+                        <p class="mt-2 text-sm text-gray-300">The ultimate spiritual goal: the cessation of suffering and the end of the cycle of rebirth.</p>
+                    </div>
+                    <div class="card rounded-xl p-6 text-center shadow-lg hover:shadow-cyan-400/20 transition-shadow duration-300">
+                        <span class="text-5xl mb-4 block">✨</span>
+                        <h3 class="text-xl font-bold text-white">Creative Visualization</h3>
+                        <p class="mt-2 text-sm text-gray-300">A cognitive process to generate mental imagery that reshapes emotions and manifests reality.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="the-path" class="my-24">
+                <h2 class="text-3xl font-bold text-center mb-2 text-white">II. Architecting the Mystic Path</h2>
+                <p class="text-center text-cyan-300 mb-12 max-w-2xl mx-auto">The seeker's transformation follows the universal monomyth—The Hero's Journey—a 12-stage blueprint for profound personal evolution.</p>
+                <div id="heros-journey-flowchart" class="mt-8 space-y-4">
+                </div>
+            </section>
+
+            <section id="the-trials" class="my-24">
+                 <h2 class="text-3xl font-bold text-center mb-2 text-white">III. The Trials of the Mind</h2>
+                <p class="text-center text-cyan-300 mb-12 max-w-2xl mx-auto">The path is paved with mystic puzzles and symbolic challenges designed to test resolve and reveal the inner self. The primary obstacles are internal conflicts.</p>
+                <div class="card rounded-xl p-6 md:p-8 shadow-lg">
+                    <h3 class="text-xl font-bold text-white mb-4 text-center">Distribution of Internal Conflicts</h3>
+                     <p class="text-sm text-center text-gray-300 mb-6">The seeker must confront various forms of inner turmoil. Fear-based conflicts and struggles with identity are the most formidable trials on the path to self-awareness.</p>
+                    <div class="chart-container">
+                        <canvas id="internalConflictChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="the-elixirs" class="my-24">
+                <h2 class="text-3xl font-bold text-center mb-2 text-white">IV. The Elixirs of Transformation</h2>
+                <p class="text-center text-cyan-300 mb-12 max-w-2xl mx-auto">To overcome trials, the seeker acquires "elixirs"—practices for growth and transcendence.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="card rounded-xl p-6 md:p-8 shadow-lg">
+                        <h3 class="text-xl font-bold text-white mb-4 text-center">The Anatomy of Holistic Healing</h3>
+                        <p class="text-sm text-center text-gray-300 mb-6">Healing is not a single act but a restoration of balance across all facets of being. It requires holistic engagement to achieve true inner harmony.</p>
+                        <div class="chart-container">
+                            <canvas id="healingRadarChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="card rounded-xl p-6 md:p-8 shadow-lg">
+                        <h3 class="text-xl font-bold text-white mb-4 text-center">The Process of Creative Visualization</h3>
+                        <p class="text-sm text-center text-gray-300 mb-6">This potent elixir works in four equal, crucial stages, turning intention into reality by mastering the mind's eye.</p>
+                        <div class="chart-container">
+                            <canvas id="visualizationDonutChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="the-return" class="my-24 text-center">
+                <h2 class="text-3xl font-bold text-center mb-2 text-white">V. The Return with the Boon</h2>
+                <p class="text-center text-cyan-300 mb-12 max-w-2xl mx-auto">Emerging transformed, the seeker integrates the ultimate boons of the journey: an unwavering spirit and a new way of being.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card rounded-xl p-8 shadow-lg">
+                        <h3 class="text-5xl font-black text-white text-glow">Grit</h3>
+                        <p class="mt-4 text-gray-300">Unwavering passion and perseverance toward long-term goals, turning adversity into fuel.</p>
+                    </div>
+                     <div class="card rounded-xl p-8 shadow-lg">
+                        <h3 class="text-5xl font-black text-white text-glow">Resilience</h3>
+                        <p class="mt-4 text-gray-300">The ability to adapt positively, transforming challenges into opportunities for growth.</p>
+                    </div>
+                     <div class="card rounded-xl p-8 shadow-lg">
+                        <h3 class="text-5xl font-black text-white text-glow">Authenticity</h3>
+                        <p class="mt-4 text-gray-300">Living in alignment with self-created values, transcending limitations to realize one's fullest potential.</p>
+                    </div>
+                </div>
+                <div class="mt-16">
+                    <span class="text-6xl text-cyan-400 text-glow">∞</span>
+                    <p class="text-lg text-white mt-4">The Labyrinth is never truly conquered.<br>The return is a new beginning for a life of perpetual growth.</p>
+                </div>
+            </section>
+
+        </main>
+        
+        <footer class="text-center mt-16 p-8 border-t border-cyan-800">
+            <p class="text-sm text-cyan-500">An infographic visualization based on "The Labyrinth of Self: A Thrilling Quest for Profound Transformation."</p>
+        </footer>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const brilliantBlues = ['#89DFF3', '#4EC5ED', '#009BDE', '#0079C2', '#004AAD'];
+            const chartTextColor = '#E5E7EB'; 
+
+            function wrapLabels(label, maxWidth) {
+                if (typeof label !== 'string' || label.length <= maxWidth) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + word).length > maxWidth && currentLine.length > 0) {
+                        lines.push(currentLine.trim());
+                        currentLine = '';
+                    }
+                    currentLine += word + ' ';
+                }
+                lines.push(currentLine.trim());
+                return lines;
+            }
+            
+            const tooltipTitleCallback = {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: chartTextColor
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                if (Array.isArray(label)) {
+                                  return label.join(' ');
+                                } else {
+                                  return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            const heroJourneyStages = [
+                { stage: 1, title: 'Ordinary World', desc: 'Initial state of awareness; identifying current limitations and dissatisfactions.' },
+                { stage: 2, title: 'Call to Adventure', desc: 'Recognition of a deeper longing for growth or an existential crisis.' },
+                { stage: 3, title: 'Refusal of the Call', desc: 'Confronting the fear of change and attachment to the known.' },
+                { stage: 4, title: 'Meeting the Mentor', desc: 'Internalizing wisdom and identifying inner resources for the journey.' },
+                { stage: 5, title: 'Crossing the Threshold', desc: 'Committing unequivocally to transformation and accepting personal responsibility.' },
+                { stage: 6, title: 'Tests, Allies, Enemies', desc: 'Developing new competencies and learning to manage emotions and relationships.' },
+                { stage: 7, title: 'Approach to the Inmost Cave', desc: 'Deep self-reflection and preparing to confront the core self (the Shadow).' },
+                { stage: 8, title: 'Ordeal', desc: 'Transcending suffering, resolving internal conflicts, and achieving wholeness.' },
+                { stage: 9, title: 'Reward (Seizing the Sword)', desc: 'Gaining profound self-knowledge and an authentic sense of purpose.' },
+                { stage: 10, title: 'The Road Back', desc: 'Integrating new awareness with past experiences and facing residual patterns.' },
+                { stage: 11, title: 'Resurrection', desc: 'A final, decisive confrontation with challenges, proving the transformation is complete.' },
+                { stage: 12, title: 'Return with the Elixir', desc: 'Living authentically and contributing one\'s transformed consciousness to the world.' },
+            ];
+
+            const flowchartContainer = document.getElementById('heros-journey-flowchart');
+            heroJourneyStages.forEach(item => {
+                const stepEl = document.createElement('div');
+                stepEl.className = 'flowchart-step pl-8 pb-8';
+                stepEl.innerHTML = `
+                    <div class="card rounded-lg p-6 shadow-lg">
+                        <h4 class="text-xl font-bold text-white mb-2"><span class="text-cyan-300">${item.stage}.</span> ${item.title}</h4>
+                        <p class="text-gray-300 text-sm">${item.desc}</p>
+                    </div>
+                `;
+                flowchartContainer.appendChild(stepEl);
+            });
+
+
+            const ctxConflict = document.getElementById('internalConflictChart');
+            if(ctxConflict) {
+                new Chart(ctxConflict, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Fear-Based', 'Identity-Based', 'Moral Conflict', 'Existential', 'Philosophical'].map(l => wrapLabels(l, 16)),
+                        datasets: [{
+                            label: 'Conflict Intensity',
+                            data: [95, 90, 85, 75, 70],
+                            backgroundColor: brilliantBlues[1],
+                            borderColor: brilliantBlues[0],
+                            borderWidth: 2,
+                            borderRadius: 4
+                        }]
+                    },
+                    options: {
+                        ...tooltipTitleCallback,
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                         scales: {
+                            x: {
+                                beginAtZero: true,
+                                grid: { color: 'rgba(75, 192, 192, 0.2)' },
+                                ticks: { color: chartTextColor, font: { size: 10 } },
+                                max: 100
+                            },
+                            y: {
+                                grid: { display: false },
+                                ticks: { color: chartTextColor, font: { size: 12 } }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const ctxHealing = document.getElementById('healingRadarChart');
+            if(ctxHealing) {
+                new Chart(ctxHealing, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Mind', 'Body', 'Spirit', 'Emotions', 'Relationships'],
+                        datasets: [{
+                            label: 'State of Harmony',
+                            data: [80, 70, 90, 75, 65],
+                            backgroundColor: 'rgba(78, 197, 237, 0.2)',
+                            borderColor: brilliantBlues[0],
+                            pointBackgroundColor: brilliantBlues[0],
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: brilliantBlues[0]
+                        }]
+                    },
+                    options: {
+                        ...tooltipTitleCallback,
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: { color: 'rgba(255, 255, 255, 0.2)' },
+                                grid: { color: 'rgba(255, 255, 255, 0.2)' },
+                                pointLabels: { color: chartTextColor, font: { size: 12 } },
+                                ticks: {
+                                    backdropColor: 'transparent',
+                                    color: chartTextColor,
+                                    font: { size: 10 }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            const ctxVisualization = document.getElementById('visualizationDonutChart');
+            if(ctxVisualization) {
+                 new Chart(ctxVisualization, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Image Generation', 'Image Maintenance', 'Image Inspection', 'Image Transformation'].map(l => wrapLabels(l, 16)),
+                        datasets: [{
+                            label: 'Process Stage',
+                            data: [25, 25, 25, 25],
+                            backgroundColor: [
+                                brilliantBlues[0],
+                                brilliantBlues[1],
+                                brilliantBlues[2],
+                                brilliantBlues[3]
+                            ],
+                            borderColor: '#002D62',
+                            borderWidth: 3,
+                        }]
+                    },
+                    options: {
+                        ...tooltipTitleCallback,
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '60%'
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
